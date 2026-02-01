@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <link rel="stylesheet" href="<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#121212" />
+    <meta
+      name="description"
+      content="Edu.Bilim - платформа для обучения в стиле Spotify"
+    />
+
+    <!-- Шрифт Circular (используется в Spotify) или похожий -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Edu.Bilim | Edu Bilim</title>
+
+    <style>
+      /* Имитация шрифта Circular Spotify */
+      @font-face {
+        font-family: "Circular";
+        font-style: normal;
+        font-weight: 300;
+        src:
+          local("Inter"),
+          local("Inter-Light"),
+          url(https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuOKfAZJhiI2D.woff2)
+            format("woff2");
+      }
+
+      body {
+        font-family:
+          "Circular",
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        background-color: #121212;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+    <!-- Фоновый градиент Spotify -->
+    <div class="spotify-bg"></div>
+  </body>
+</html>
