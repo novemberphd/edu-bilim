@@ -1,39 +1,52 @@
-﻿import React from "react"; // ТОЛЬКО ЭТА СТРОКА ДЛЯ ИМПОРТА REACT!
+﻿import React from "react";
 
-export default function App() {
+function App() {
   return (
     <div
       style={{
-        minHeight: "100vh",
-        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-        color: "white",
-        padding: "50px",
         textAlign: "center",
-        fontFamily: "Arial",
+        padding: "40px",
+        fontFamily: "Arial, sans-serif",
+        backgroundColor: "#f5f5f5",
+        minHeight: "100vh",
       }}
     >
-      <h1 style={{ fontSize: "3rem", marginBottom: "20px" }}>
-        ✅ EDU BILIM РАБОТАЕТ!
-      </h1>
-      <p style={{ fontSize: "1.5rem" }}>Сайт полностью функционирует</p>
-      <div style={{ marginTop: "40px" }}>
+      <h1 style={{ color: "#2c3e50" }}>🎓 EDU BILIM - Работает!</h1>
+      <p>Образовательная платформа готова к работе</p>
+
+      <div style={{ marginTop: "30px" }}>
         <button style={buttonStyle}>Главная</button>
         <button style={buttonStyle}>Курсы</button>
+        <button style={buttonStyle}>Преподаватели</button>
         <button style={buttonStyle}>Войти</button>
+      </div>
+
+      <div
+        style={{
+          marginTop: "50px",
+          padding: "20px",
+          backgroundColor: "white",
+          borderRadius: "10px",
+          maxWidth: "600px",
+          margin: "50px auto",
+        }}
+      >
+        <h3>Добро пожаловать!</h3>
+        <p>Здесь будет контент вашей образовательной платформы</p>
       </div>
     </div>
   );
 }
 
 const buttonStyle = {
-  padding: "15px 30px",
   margin: "10px",
-  background: "white",
-  color: "#667eea",
+  padding: "12px 24px",
+  backgroundColor: "#3498db",
+  color: "white",
   border: "none",
-  borderRadius: "50px",
-  fontSize: "18px",
-  fontWeight: "bold",
+  borderRadius: "5px",
   cursor: "pointer",
+  fontSize: "16px",
 };
-// НИКАКИХ ДОПОЛНИТЕЛЬНЫХ EXPORT ЗДЕСЬ!
+
+export default App; // ТОЛЬКО ОДИН ЭКСПОРТ!
