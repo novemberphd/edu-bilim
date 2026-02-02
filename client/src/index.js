@@ -1,13 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-function App() {
-  return <h1>Edu Bilim Platform</h1>;
-}
+import App from "./App";
+import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
