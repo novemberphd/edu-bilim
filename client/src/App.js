@@ -1,13 +1,13 @@
-import React from "react";
+﻿import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
-import Home from "./pages/Home";
-import Courses from "./pages/Courses";
-import CourseDetail from "./pages/CourseDetail";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Profile from "./pages/Profile";
-import LeaderBoard from "./pages/LeaderBoard";
+import Layout from "./components/Layout.jsx";
+import Home from "./pages/Home.jsx";
+import Courses from "./pages/Courses.jsx";
+import CourseDetail from "./pages/CourseDetail.jsx";
+import Login from "./pages/Login.jsx";
+import Signup from "./pages/Signup.jsx";
+import Profile from "./pages/Profile.jsx";
+import LeaderBoard from "./pages/LeaderBoard.jsx";
 import "./index.css";
 
 function App() {
