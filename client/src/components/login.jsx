@@ -1,7 +1,7 @@
-// src/pages/Login.js
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import { userApi } from "../api/users";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -15,17 +15,33 @@ export default function Login() {
     setError("");
 
     try {
+      // Временная моковая авторизация (замените на реальную когда будет бэкенд)
       const mockUser = {
         email,
-        name: email.split("@")[0],
-        points: Math.floor(Math.random() * 500),
+        name: email.split("@")[0] || "Пользователь",
+        points: Math.floor(Math.random() * 100), // Начальные очки
       };
 
-      setUser(mockUser);
-      localStorage.setItem("user", JSON.stringify(mockUser));
-      navigate("/profile");
+      // Сохраняем пользователя на сервере
+      const result = await userApi.saveUser({
+        email: mockUser.email,
+        name: mockUser.name,
+        points: mockUser.points,
+      });
+
+      if (result.success) {
+        // Сохраняем пользователя в контекст и localStorage
+        setUser(result.user || mockUser);
+        localStorage.setItem("user", JSON.stringify(result.user || mockUser));
+
+        // Перенаправляем на профиль
+        navigate("/profile");
+      } else {
+        setError("Ошибка при сохранении пользователя");
+      }
     } catch (err) {
-      setError("Ошибка входа. Проверьте данные.");
+      console.error("Ошибка входа:", err);
+      setError("Ошибка входа. Проверьте данные или попробуйте позже.");
     }
   };
 
@@ -36,7 +52,9 @@ export default function Login() {
           <div className="inline-block p-4 rounded-2xl bg-gradient-to-r from-spotify-green/20 to-purple-900/20 mb-6">
             <span className="text-4xl">🎧</span>
           </div>
-          <h1 className="title-lg mb-3">С возвращением!</h1>
+          <h1 className="text-3xl font-bold text-white mb-3">
+            С возвращением!
+          </h1>
           <p className="text-spotify-secondary">
             Войдите, чтобы продолжить обучение
           </p>
@@ -125,7 +143,10 @@ export default function Login() {
               onClick={() => {
                 setEmail("demo@edu.bilim");
                 setPassword("demo123");
-                setTimeout(() => document.querySelector("form").submit(), 100);
+                setTimeout(() => {
+                  const form = document.querySelector("form");
+                  if (form) form.submit();
+                }, 100);
               }}
               className="btn-spotify btn-spotify-secondary w-full"
             >

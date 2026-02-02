@@ -1,37 +1,30 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Courses from "./pages/Courses";
 import CourseDetail from "./pages/CourseDetail";
-import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import LeaderBoard from "./pages/LeaderBoard"; // <-- Исправлено на 'Leaderboard'
-import PrivateRoute from "./components/PrivateRoute";
+import Profile from "./pages/Profile";
+import LeaderBoard from "./pages/LeaderBoard";
 import "./index.css";
 
 function App() {
   return (
-    <Router>
-      <Header />
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/course/:id" element={<CourseDetail />} />
-        <Route
-          path="/profile"
-          element={
-            <PrivateRoute>
-              <Profile />
-            </PrivateRoute>
-          }
-        />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/leaderboard" element={<LeaderBoard />} />{" "}
-        {/* <-- И здесь */}
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="courses" element={<Courses />} />
+          <Route path="courses/:id" element={<CourseDetail />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="leaderboard" element={<LeaderBoard />} />
+        </Route>
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 
